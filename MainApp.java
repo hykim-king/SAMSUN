@@ -15,12 +15,11 @@ public class MainApp {
                 System.out.println("== 사장님, 반갑습니다! ==");
                 System.out.println("== 원하시는 메뉴를 선택해주세요. ==");
                 System.out.println("=========================================");
-                System.out.println("1. [미용실] 통합 대시보드");
-                System.out.println("2. [BCM] 위기/재난 관리 (단독 실행)");
-                System.out.println("3. [재고] 재고 관리 (단독 실행)");
+                System.out.println("1. 경영 분석 모듈");
+                System.out.println("2. 재난 관리 모듈");
                 System.out.println("0. 전체 프로그램 종료");
 
-                System.out.print("\n👉 입력: "); // [통일] 프롬프트
+                System.out.print("\n👉 입력: "); 
                 String choice = scanner.nextLine();
                 System.out.println("-----------------------------------------");
 
@@ -31,15 +30,12 @@ public class MainApp {
                 case "2":
                     BCM.startBCM(scanner);
                     break;
-                case "3":
-                    InventoryManager.startInventoryManagement(scanner);
-                    break;
                 case "0":
                     appRunning = false;
                     System.out.println("프로그램을 종료합니다.");
                     break;
                 default:
-                    System.out.println("❌ 잘못된 입력입니다. 0-3 사이의 숫자를 입력하세요."); // [통일] 오류
+                    System.out.println("❌ 잘못된 입력입니다. 0-3 사이의 숫자를 입력하세요."); 
                     break;
                 }
 
