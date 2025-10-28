@@ -17,6 +17,7 @@ public class MainApp {
                 System.out.println("=========================================");
                 System.out.println("1. 경영 분석 모듈");
                 System.out.println("2. 재난 관리 모듈");
+                System.out.println("3. 재고 관리 모듈");
                 System.out.println("0. 전체 프로그램 종료");
 
                 System.out.print("\n👉 입력: "); 
@@ -30,6 +31,9 @@ public class MainApp {
                 case "2":
                     BCM.startBCM(scanner);
                     break;
+                case "3":
+		                InventoryManager.startInventoryManagement(scanner);
+		                break;
                 case "0":
                     appRunning = false;
                     System.out.println("프로그램을 종료합니다.");
