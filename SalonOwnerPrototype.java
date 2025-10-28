@@ -83,7 +83,6 @@ public class SalonOwnerPrototype {
         System.out.println("무엇을 하시겠습니까?");
         System.out.println("1. 경영 모듈"); 
         System.out.println("2. BCM 모듈"); 
-        System.out.println("3. 재고 관리");
         System.out.println("0. 메인 메뉴로 돌아가기"); 
         
         System.out.print("\n👉 입력: "); 
@@ -133,11 +132,7 @@ public class SalonOwnerPrototype {
                     System.out.println(DUMMY_BCM_REPORT);
                 }
                 break;
-
-            case "3":
-                InventoryManager.startInventoryManagement(scanner);
-                break;
-
+                
             case "0":
                 return false; 
 
