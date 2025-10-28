@@ -4,30 +4,45 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-// (Product, Inventory 클래스는 규현님이 주신 파일 입출력 로직 그대로 사용)
+
 class Product {
 	private String name;
 	private int count;
+
 	public Product(String name, int count) {
-		this.name = name; this.count = count;
+		this.name = name;
+		this.count = count;
 	}
-	public String getName() { return name; }
-	public int getcount() { return count; }
-	public void setcount(int count) { this.count = count; }
+
+	public String getName() {
+		return name;
+	}
+
+	public int getcount() {
+		return count;
+	}
+
+	public void setcount(int count) {
+		this.count = count;
+	}
+
 	public String getStockStatus() {
-		if (count <= 3) return "△ 부족";
-		else if (count <= 7) return "■ 보통";
-		else return "○ 여유";
+		if (count <= 3)
+			return "△ 부족";
+		else if (count <= 7)
+			return "■ 보통";
+		else
+			return "○ 여유";
 	}
 }
 
 class Inventory {
 	private ArrayList<Product> inventory;
-	private static final String FILE_NAME = "products.txt"; 
+	private static final String FILE_NAME = "products.txt";
 
 	public Inventory() {
 		inventory = new ArrayList<>();
-		loadInventoryFromFile(); 
+		loadInventoryFromFile();
 	}
 
 	public void addProduct(String name, int count) {
@@ -39,7 +54,7 @@ class Inventory {
 			inventory.add(new Product(name, count));
 			System.out.println("✅ 제품이 추가되었습니다."); // [통일] 아이콘
 		}
-		saveInventoryToFile(); 
+		saveInventoryToFile();
 	}
 
 	public Product findProduct(String name) {
@@ -51,7 +66,7 @@ class Inventory {
 		return null;
 	}
 
-	public void showInventory() {
+	public void showInventory(Scanner scanner) {
 		System.out.println("\n-----------------------------------------"); // [통일] 구분선
 		System.out.println("[현재 재고 현황]");
 		System.out.println("-----------------------------------------"); // [통일] 구분선
@@ -64,6 +79,8 @@ class Inventory {
 						p.getStockStatus());
 			}
 		}
+		System.out.println("\n...계속하려면 Enter 키를 누르세요...");
+		scanner.nextLine(); // 엔터 대기
 	}
 
 	private void loadInventoryFromFile() {
@@ -101,7 +118,6 @@ class Inventory {
 	}
 }
 
-
 public class InventoryManager {
 
 	public static void startInventoryManagement(Scanner scanner) {
@@ -120,11 +136,11 @@ public class InventoryManager {
 			System.out.println("0. 이전 메뉴로 돌아가기");
 			System.out.print("\n👉 입력: "); // [통일] 프롬프트
 			String input = scanner.nextLine();
-            System.out.println("-----------------------------------------"); // [통일] 구분선
+			System.out.println("-----------------------------------------"); // [통일] 구분선
 
 			switch (input) {
 			case "1":
-				manager.showInventory();
+				manager.showInventory(scanner);
 				break;
 
 			case "2":
